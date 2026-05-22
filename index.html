@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>La Chilanguita – Tradicional Sabor Mexicano | Reynosa, Tam.</title>
+  <meta name="description" content="La Chilanguita – Comida casera mexicana en Reynosa, Tamaulipas. Birria, tacos, menudo y almuerzos. Sabor de siempre." />
+
+  <style>
+    /* ── Variables ─────────────────────────────────────────────── */
+    :root {
+      --rojo:    #C0392B;
+      --rojo-oscuro: #922B21;
+      --crema:   #FDF6EC;
+      --crema-oscuro: #F5E6CC;
+      --cafe:    #6B3A2A;
+      --cafe-claro: #A0522D;
+      --verde:   #2E7D32;
+      --texto:   #2C1810;
+      --blanco:  #FFFFFF;
+      --sombra:  rgba(44,24,16,.15);
+      --radius:  14px;
+      --transicion: .3s ease;
+    }
+
+    /* ── Reset ──────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: var(--crema);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Utilidades ─────────────────────────────────────────────── */
+    .seccion {
+      padding: 72px 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .titulo-seccion {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 900;
+      color: var(--rojo);
+      text-align: center;
+      margin-bottom: 10px;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+    }
+    .subtitulo-seccion {
+      text-align: center;
+      color: var(--cafe-claro);
+      font-size: 1.05rem;
+      margin-bottom: 48px;
+    }
+    .separador {
+      width: 72px;
+      height: 4px;
+      background: var(--rojo);
+      border-radius: 2px;
+      margin: 12px auto 40px;
+    }
+
+    /* ── Barra de navegación ────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(192,57,43,.95);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 2px 12px rgba(0,0,0,.25);
+      transition: background var(--transicion);
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 62px;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-logo img {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--crema-oscuro);
+    }
+    .nav-logo span {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: var(--crema);
+      letter-spacing: .5px;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--crema);
+      font-size: .9rem;
+      font-weight: 700;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+      transition: border-color var(--transicion);
+    }
+    .nav-links a:hover { border-bottom-color: var(--crema-oscuro); }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span {
+      width: 26px; height: 2px;
+      background: var(--crema);
+      border-radius: 2px;
+      transition: var(--transicion);
+    }
+    .menu-mobile {
+      display: none;
+      flex-direction: column;
+      background: var(--rojo-oscuro);
+      padding: 16px 24px 20px;
+    }
+    .menu-mobile.abierto { display: flex; }
+    .menu-mobile a {
+      color: var(--crema);
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .6px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+
+    /* ── Hero ───────────────────────────────────────────────────── */
+    #inicio {
+      min-height: 100vh;
+      background:
+        linear-gradient(to bottom, rgba(44,24,16,.70) 0%, rgba(144,39,20,.55) 60%, rgba(44,24,16,.80) 100%),
+        url('foto11.jpg') center center / cover no-repeat fixed;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px 24px 60px;
+      position: relative;
+    }
+    .hero-logo {
+      width: clamp(120px, 28vw, 180px);
+      height: clamp(120px, 28vw, 180px);
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid var(--crema-oscuro);
+      box-shadow: 0 8px 32px rgba(0,0,0,.5);
+      margin-bottom: 28px;
+      animation: aparece .8s ease both;
+    }
+    .hero-nombre {
+      font-size: clamp(2.8rem, 8vw, 5.5rem);
+      font-weight: 900;
+      color: var(--crema);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      line-height: 1;
+      text-shadow: 0 4px 20px rgba(0,0,0,.6);
+      animation: aparece .9s ease .1s both;
+    }
+    .hero-tagline {
+      font-size: clamp(1rem, 3vw, 1.5rem);
+      color: var(--crema-oscuro);
+      margin: 16px 0 36px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-style: italic;
+      animation: aparece 1s ease .2s both;
+    }
+    .hero-botones {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+      animation: aparece 1s ease .35s both;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 30px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      cursor: pointer;
+      transition: transform var(--transicion), box-shadow var(--transicion);
+      border: none;
+    }
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+    .btn:active { transform: translateY(0); }
+    .btn-whatsapp {
+      background: #25D366;
+      color: var(--blanco);
+    }
+    .btn-menu {
+      background: var(--crema);
+      color: var(--rojo);
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--crema);
+      font-size: .8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      animation: flotando 2s ease-in-out infinite;
+    }
+    .hero-scroll svg { width: 22px; }
+
+    @keyframes aparece {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes flotando {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* ── Banda destacada ────────────────────────────────────────── */
+    .banda {
+      background: var(--rojo);
+      color: var(--crema);
+      text-align: center;
+      padding: 20px 24px;
+      font-size: clamp(.9rem, 2.5vw, 1.1rem);
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    /* ── Menú ───────────────────────────────────────────────────── */
+    #menu { background: var(--crema); }
+    .grid-menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 28px;
+    }
+    .tarjeta {
+      background: var(--blanco);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 4px 18px var(--sombra);
+      transition: transform var(--transicion), box-shadow var(--transicion);
+    }
+    .tarjeta:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px var(--sombra);
+    }
+    .tarjeta-img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+    }
+    .tarjeta-info {
+      padding: 16px 18px 20px;
+    }
+    .tarjeta-titulo {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--rojo);
+      text-transform: uppercase;
+      letter-spacing: .4px;
+      margin-bottom: 4px;
+    }
+    .tarjeta-desc {
+      font-size: .9rem;
+      color: var(--cafe-claro);
+    }
+
+    /* ── Nosotros ───────────────────────────────────────────────── */
+    #nosotros { background: var(--crema-oscuro); }
+    .nosotros-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .nosotros-img-wrap {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 8px 32px var(--sombra);
+    }
+    .nosotros-img-wrap img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+    }
+    .nosotros-texto h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+      font-weight: 900;
+      color: var(--rojo);
+      text-transform: uppercase;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .nosotros-texto .separador { margin: 12px 0 24px; }
+    .nosotros-texto p {
+      font-size: 1.05rem;
+      color: var(--cafe);
+      margin-bottom: 18px;
+      line-height: 1.75;
+    }
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .chip {
+      background: var(--rojo);
+      color: var(--crema);
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: .85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+
+    /* ── Galería extra ──────────────────────────────────────────── */
+    #galeria { background: var(--cafe); padding: 72px 24px; }
+    #galeria .titulo-seccion { color: var(--crema); }
+    #galeria .subtitulo-seccion { color: var(--crema-oscuro); }
+    #galeria .separador { background: var(--crema-oscuro); }
+    .grid-galeria {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 200px;
+      gap: 12px;
+    }
+    .galeria-item {
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .galeria-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+    .galeria-item:nth-child(6) { grid-column: span 2; }
+    .galeria-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .4s ease;
+    }
+    .galeria-item:hover img { transform: scale(1.06); }
+
+    /* ── Ubicación ──────────────────────────────────────────────── */
+    #ubicacion { background: var(--crema); }
+    .ubicacion-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .mapa-embed {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 4px 20px var(--sombra);
+      height: 360px;
+      background: var(--crema-oscuro);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .mapa-embed iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .ubicacion-datos h3 {
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--rojo);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .dato-item {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 20px;
+      align-items: flex-start;
+    }
+    .dato-icono {
+      width: 42px;
+      height: 42px;
+      background: var(--rojo);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .dato-icono svg { width: 20px; fill: var(--crema); }
+    .dato-texto p { font-size: .95rem; color: var(--cafe); line-height: 1.55; }
+    .dato-texto strong { display: block; color: var(--texto); font-weight: 800; margin-bottom: 2px; }
+    .btn-maps {
+      background: var(--rojo);
+      color: var(--crema);
+      margin-top: 8px;
+    }
+
+    /* ── Contacto ───────────────────────────────────────────────── */
+    #contacto {
+      background: linear-gradient(135deg, var(--rojo) 0%, var(--rojo-oscuro) 100%);
+      padding: 72px 24px;
+      text-align: center;
+    }
+    #contacto .titulo-seccion { color: var(--crema); }
+    #contacto .separador { background: var(--crema-oscuro); }
+    .contacto-grid {
+      max-width: 800px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 48px;
+    }
+    .contacto-card {
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: var(--radius);
+      padding: 32px 24px;
+      color: var(--crema);
+    }
+    .contacto-card svg {
+      width: 44px;
+      fill: var(--crema-oscuro);
+      margin: 0 auto 14px;
+      display: block;
+    }
+    .contacto-card h4 {
+      font-size: 1rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .7px;
+      margin-bottom: 10px;
+    }
+    .contacto-card p { font-size: .95rem; line-height: 1.65; opacity: .9; }
+    .contacto-card a { color: var(--crema); text-decoration: underline; }
+    .btn-contacto-wa {
+      background: #25D366;
+      color: var(--blanco);
+      margin: 40px auto 0;
+      font-size: 1.1rem;
+      padding: 16px 38px;
+    }
+
+    /* ── Footer ─────────────────────────────────────────────────── */
+    footer {
+      background: var(--texto);
+      color: var(--crema-oscuro);
+      text-align: center;
+      padding: 28px 24px;
+      font-size: .88rem;
+    }
+    footer a { color: var(--crema-oscuro); text-decoration: underline; }
+
+    /* ── Botón flotante WhatsApp ─────────────────────────────────── */
+    .wa-flotante {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 200;
+      width: 62px;
+      height: 62px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,.3);
+      transition: transform var(--transicion);
+    }
+    .wa-flotante:hover { transform: scale(1.1); }
+    .wa-flotante svg { width: 34px; fill: var(--blanco); }
+
+    /* ── Lightbox ───────────────────────────────────────────────── */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      background: rgba(0,0,0,.92);
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox.abierto { display: flex; }
+    .lightbox img {
+      max-width: 92vw;
+      max-height: 88vh;
+      border-radius: 10px;
+      object-fit: contain;
+    }
+    .lightbox-cerrar {
+      position: absolute;
+      top: 20px; right: 24px;
+      color: var(--crema);
+      font-size: 2.2rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    /* ── Responsive ─────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      .nosotros-inner,
+      .ubicacion-inner,
+      .contacto-grid { grid-template-columns: 1fr; }
+
+      .nosotros-img-wrap img { height: 280px; }
+      .mapa-embed { height: 280px; }
+
+      .grid-galeria {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 150px;
+      }
+      .galeria-item:nth-child(1) { grid-column: span 2; grid-row: span 1; }
+      .galeria-item:nth-child(6) { grid-column: span 1; }
+    }
+
+    @media (max-width: 480px) {
+      .seccion { padding: 52px 18px; }
+      .grid-menu { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Navegación ──────────────────────────────────────────────── -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <img src="logo.jpg" alt="La Chilanguita" />
+      <span>La Chilanguita</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#menu">Menú</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#ubicacion">Ubicación</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="menu-mobile" id="menuMobile">
+    <a href="#inicio"   onclick="cerrarMenu()">Inicio</a>
+    <a href="#menu"     onclick="cerrarMenu()">Menú</a>
+    <a href="#nosotros" onclick="cerrarMenu()">Nosotros</a>
+    <a href="#galeria"  onclick="cerrarMenu()">Galería</a>
+    <a href="#ubicacion" onclick="cerrarMenu()">Ubicación</a>
+    <a href="#contacto" onclick="cerrarMenu()">Contacto</a>
+  </div>
+</nav>
+
+<!-- ── Hero ───────────────────────────────────────────────────── -->
+<section id="inicio">
+  <img class="hero-logo" src="logo.jpg" alt="Logo La Chilanguita" />
+  <h1 class="hero-nombre">La Chilanguita</h1>
+  <p class="hero-tagline">Tradicional Sabor Mexicano</p>
+  <div class="hero-botones">
+    <a class="btn btn-whatsapp"
+       href="https://wa.me/5218671234567?text=Hola%2C%20quiero%20información%20sobre%20La%20Chilanguita"
+       target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" width="22" fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/>
+        <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.85L.057 23.57a.5.5 0 0 0 .611.612l5.739-1.502A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0m0 21.818a9.807 9.807 0 0 1-5.045-1.39l-.361-.214-3.747.982.999-3.648-.235-.374A9.808 9.808 0 0 1 2.182 12C2.182 6.573 6.573 2.182 12 2.182S21.818 6.573 21.818 12 17.427 21.818 12 21.818"/>
+      </svg>
+      Escríbenos
+    </a>
+    <a class="btn btn-menu" href="#menu">Ver Menú</a>
+  </div>
+  <div class="hero-scroll">
+    <span>Descubre más</span>
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>
+  </div>
+</section>
+
+<!-- ── Banda ───────────────────────────────────────────────────── -->
+<div class="banda">
+  🌮 Birria · Tacos · Menudo · Almuerzos — Comida de siempre 🌮
+</div>
+
+<!-- ── Menú ────────────────────────────────────────────────────── -->
+<section id="menu">
+  <div class="seccion">
+    <h2 class="titulo-seccion">Nuestro Menú</h2>
+    <div class="separador"></div>
+    <p class="subtitulo-seccion">Lo mejor de la cocina mexicana, hecho con amor y recetas de siempre</p>
+    <div class="grid-menu">
+
+      <div class="tarjeta">
+        <img class="tarjeta-img" src="foto1.jpg" alt="Birria" loading="lazy" />
+        <div class="tarjeta-info">
+          <p class="tarjeta-titulo">Birria</p>
+          <p class="tarjeta-desc">Guisada a fuego lento con especias y chiles, servida con consomé y tortillas.</p>
+        </div>
+      </div>
+
+      <div class="tarjeta">
+        <img class="tarjeta-img" src="foto2.jpg" alt="Tacos" loading="lazy" />
+        <div class="tarjeta-info">
+          <p class="tarjeta-titulo">Tacos</p>
+          <p class="tarjeta-desc">Tortilla de maíz artesanal con guisos del día, cebolla, cilantro y salsa.</p>
+        </div>
+      </div>
+
+      <div class="tarjeta">
+        <img class="tarjeta-img" src="foto3.jpeg" alt="Menudo" loading="lazy" />
+        <div class="tarjeta-info">
+          <p class="tarjeta-titulo">Menudo</p>
+          <p class="tarjeta-desc">Caldo reconfortante con maíz pozolero, el remedio de los domingos.</p>
+        </div>
+      </div>
+
+      <div class="tarjeta">
+        <img class="tarjeta-img" src="foto4.jpeg" alt="Almuerzo" loading="lazy" />
+        <div class="tarjeta-info">
+          <p class="tarjeta-titulo">Almuerzos</p>
+          <p class="tarjeta-desc">Chilaquiles, huevos rancheros y guisos caseros para empezar bien el día.</p>
+        </div>
+      </div>
+
+      <div class="tarjeta">
+        <img class="tarjeta-img" src="foto5.jpeg" alt="Especiales del día" loading="lazy" />
+        <div class="tarjeta-info">
+          <p class="tarjeta-titulo">Especiales del Día</p>
+          <p class="tarjeta-desc">Guisos de temporada que cambian diario. ¡Pregunta qué hay hoy!</p>
+        </div>
+      </div>
+
+      <div class="tarjeta">
+        <img class="tarjeta-img" src="foto6.jpeg" alt="Aguas frescas" loading="lazy" />
+        <div class="tarjeta-info">
+          <p class="tarjeta-titulo">Aguas Frescas</p>
+          <p class="tarjeta-desc">Jamaica, horchata, tamarindo y frutas de temporada. Refrescantes y naturales.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Nosotros ───────────────────────────────────────────────── -->
+<section id="nosotros">
+  <div class="seccion nosotros-inner">
+    <div class="nosotros-img-wrap">
+      <img src="foto8.jpeg" alt="Interior La Chilanguita" loading="lazy" />
+    </div>
+    <div class="nosotros-texto">
+      <h2>Comida de Casa,<br>Sabor de Siempre</h2>
+      <div class="separador"></div>
+      <p>
+        La Chilanguita nació del amor por la cocina tradicional mexicana. Somos un
+        restaurante familiar ubicado en el corazón de Reynosa, Tamaulipas, donde cada
+        platillo se prepara con ingredientes frescos y recetas heredadas de generación
+        en generación.
+      </p>
+      <p>
+        Desde el primer día nuestra misión es simple: servir comida casera, abundante
+        y con el sabor que te recuerda al hogar. Sin atajos, sin congelados — pura
+        tradición en cada bocado.
+      </p>
+      <div class="chips">
+        <span class="chip">Comida Casera</span>
+        <span class="chip">Ingredientes Frescos</span>
+        <span class="chip">Ambiente Familiar</span>
+        <span class="chip">Reynosa, Tamps.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Galería ────────────────────────────────────────────────── -->
+<section id="galeria">
+  <h2 class="titulo-seccion">Galería</h2>
+  <div class="separador"></div>
+  <p class="subtitulo-seccion">Una probadita visual de todo lo que tenemos para ti</p>
+  <div class="grid-galeria">
+    <div class="galeria-item" onclick="abrirLightbox('foto7.jpeg')">
+      <img src="foto7.jpeg" alt="Platillo La Chilanguita" loading="lazy" />
+    </div>
+    <div class="galeria-item" onclick="abrirLightbox('foto9.jpg')">
+      <img src="foto9.jpg" alt="Platillo La Chilanguita" loading="lazy" />
+    </div>
+    <div class="galeria-item" onclick="abrirLightbox('foto10.jpeg')">
+      <img src="foto10.jpeg" alt="Platillo La Chilanguita" loading="lazy" />
+    </div>
+    <div class="galeria-item" onclick="abrirLightbox('foto12.jpeg')">
+      <img src="foto12.jpeg" alt="Platillo La Chilanguita" loading="lazy" />
+    </div>
+    <div class="galeria-item" onclick="abrirLightbox('backupfoto7.jpeg')">
+      <img src="backupfoto7.jpeg" alt="Platillo La Chilanguita" loading="lazy" />
+    </div>
+    <div class="galeria-item" onclick="abrirLightbox('foto11.jpg')">
+      <img src="foto11.jpg" alt="Platillo La Chilanguita" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<!-- ── Ubicación ──────────────────────────────────────────────── -->
+<section id="ubicacion">
+  <div class="seccion">
+    <h2 class="titulo-seccion">¿Dónde Estamos?</h2>
+    <div class="separador"></div>
+    <div class="ubicacion-inner">
+      <div class="mapa-embed">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114957.89!2d-98.28!3d26.08!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x866878ae33c4a15f%3A0x4b7c3c10b8dd2e1e!2sReynosa%2C%20Tamaulipas!5e0!3m2!1ses!2smx!4v1"
+          allowfullscreen loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Mapa Reynosa, Tamaulipas">
+        </iframe>
+      </div>
+      <div class="ubicacion-datos">
+        <h3>Encuéntranos</h3>
+
+        <div class="dato-item">
+          <div class="dato-icono">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <div class="dato-texto">
+            <strong>Dirección</strong>
+            <p>Reynosa, Tamaulipas, México<br>
+               <em>(Actualiza con la dirección exacta)</em></p>
+          </div>
+        </div>
+
+        <div class="dato-item">
+          <div class="dato-icono">
+            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+          </div>
+          <div class="dato-texto">
+            <strong>Horarios</strong>
+            <p>Lunes a Viernes: 8:00 am – 4:00 pm<br>
+               Sábado y Domingo: 8:00 am – 5:00 pm</p>
+          </div>
+        </div>
+
+        <div class="dato-item">
+          <div class="dato-icono">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02z"/></svg>
+          </div>
+          <div class="dato-texto">
+            <strong>Teléfono / WhatsApp</strong>
+            <p><a href="https://wa.me/5218671234567">867 123 4567</a></p>
+          </div>
+        </div>
+
+        <a class="btn btn-maps"
+           href="https://maps.google.com/?q=Reynosa,Tamaulipas,Mexico"
+           target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="18" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:8px">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+          </svg>
+          Cómo llegar
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Contacto ───────────────────────────────────────────────── -->
+<section id="contacto">
+  <h2 class="titulo-seccion">Contáctanos</h2>
+  <div class="separador"></div>
+  <div class="contacto-grid">
+    <div class="contacto-card">
+      <svg viewBox="0 0 24 24">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/>
+        <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.85L.057 23.57a.5.5 0 0 0 .611.612l5.739-1.502A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0m0 21.818a9.807 9.807 0 0 1-5.045-1.39l-.361-.214-3.747.982.999-3.648-.235-.374A9.808 9.808 0 0 1 2.182 12C2.182 6.573 6.573 2.182 12 2.182S21.818 6.573 21.818 12 17.427 21.818 12 21.818"/>
+      </svg>
+      <h4>WhatsApp</h4>
+      <p>Escríbenos para hacer pedidos, preguntar el menú del día o reservar tu mesa.</p>
+      <p style="margin-top:10px"><strong><a href="https://wa.me/5218671234567">867 123 4567</a></strong></p>
+    </div>
+    <div class="contacto-card">
+      <svg viewBox="0 0 24 24">
+        <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+      </svg>
+      <h4>Horarios</h4>
+      <p>
+        <strong>Lun – Vie:</strong> 8:00 am – 4:00 pm<br>
+        <strong>Sáb – Dom:</strong> 8:00 am – 5:00 pm<br><br>
+        ¡Te esperamos con las ollas humeando!
+      </p>
+    </div>
+  </div>
+  <div style="text-align:center">
+    <a class="btn btn-contacto-wa"
+       href="https://wa.me/5218671234567?text=Hola%20La%20Chilanguita%2C%20quiero%20información"
+       target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" width="22" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:10px">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/>
+        <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.85L.057 23.57a.5.5 0 0 0 .611.612l5.739-1.502A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0m0 21.818a9.807 9.807 0 0 1-5.045-1.39l-.361-.214-3.747.982.999-3.648-.235-.374A9.808 9.808 0 0 1 2.182 12C2.182 6.573 6.573 2.182 12 2.182S21.818 6.573 21.818 12 17.427 21.818 12 21.818"/>
+      </svg>
+      Escríbenos por WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- ── Footer ─────────────────────────────────────────────────── -->
+<footer>
+  <p>© 2025 <strong>La Chilanguita</strong> · Reynosa, Tamaulipas, México</p>
+  <p style="margin-top:6px; opacity:.7">Comida casera mexicana con el sabor de siempre</p>
+</footer>
+
+<!-- ── Botón flotante ─────────────────────────────────────────── -->
+<a class="wa-flotante"
+   href="https://wa.me/5218671234567?text=Hola%20La%20Chilanguita%2C%20quiero%20información"
+   target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/>
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.85L.057 23.57a.5.5 0 0 0 .611.612l5.739-1.502A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0m0 21.818a9.807 9.807 0 0 1-5.045-1.39l-.361-.214-3.747.982.999-3.648-.235-.374A9.808 9.808 0 0 1 2.182 12C2.182 6.573 6.573 2.182 12 2.182S21.818 6.573 21.818 12 17.427 21.818 12 21.818"/>
+  </svg>
+</a>
+
+<!-- ── Lightbox ───────────────────────────────────────────────── -->
+<div class="lightbox" id="lightbox" onclick="cerrarLightbox()">
+  <button class="lightbox-cerrar" onclick="cerrarLightbox()">✕</button>
+  <img id="lightboxImg" src="" alt="Foto ampliada" />
+</div>
+
+<script>
+  /* Menú hamburguesa */
+  const hamburger = document.getElementById('hamburger');
+  const menuMobile = document.getElementById('menuMobile');
+  hamburger.addEventListener('click', () => menuMobile.classList.toggle('abierto'));
+  function cerrarMenu() { menuMobile.classList.remove('abierto'); }
+
+  /* Lightbox */
+  function abrirLightbox(src) {
+    document.getElementById('lightboxImg').src = src;
+    document.getElementById('lightbox').classList.add('abierto');
+    document.body.style.overflow = 'hidden';
+  }
+  function cerrarLightbox() {
+    document.getElementById('lightbox').classList.remove('abierto');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarLightbox(); });
+
+  /* Animación de entrada al hacer scroll */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.tarjeta, .nosotros-img-wrap, .nosotros-texto, .contacto-card, .galeria-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity .6s ease, transform .6s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
