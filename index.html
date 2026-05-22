@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>La Chilanguita – Tradicional Sabor Mexicano | Reynosa, Tam.</title>
-  <meta name="description" content="La Chilanguita – Comida casera mexicana en Reynosa, Tamaulipas. Birria, tacos, menudo y almuerzos. Sabor de siempre." />
+  <meta name="description" content="La Chilanguita – Auténtica comida estilo Ciudad de México en Reynosa, Tamaulipas. Birria, tacos, gorditas y almuerzos. Sabor de siempre." />
 
   <style>
     /* ── Variables ─────────────────────────────────────────────── */
@@ -489,6 +489,30 @@
       font-size: .88rem;
     }
     footer a { color: var(--crema-oscuro); text-decoration: underline; }
+    .redes-footer {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin: 18px 0 10px;
+    }
+    .red-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 20px;
+      border-radius: 50px;
+      font-size: .85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      text-decoration: none !important;
+      transition: transform var(--transicion), opacity var(--transicion);
+    }
+    .red-btn:hover { transform: translateY(-2px); opacity: .9; }
+    .red-btn svg { width: 18px; flex-shrink: 0; }
+    .red-facebook { background: #1877F2; color: #fff; }
+    .red-tiktok   { background: #010101; color: #fff; }
+    .red-whatsapp { background: #25D366; color: #fff; }
 
     /* ── Botón flotante WhatsApp ─────────────────────────────────── */
     .wa-flotante {
@@ -598,7 +622,7 @@
 <section id="inicio">
   <img class="hero-logo" src="logo.jpg" alt="Logo La Chilanguita" />
   <h1 class="hero-nombre">La Chilanguita</h1>
-  <p class="hero-tagline">Tradicional Sabor Mexicano</p>
+  <p class="hero-tagline">Auténtico Estilo Ciudad de México</p>
   <div class="hero-botones">
     <a class="btn btn-whatsapp"
        href="https://wa.me/528998252524?text=Hola%2C%20quiero%20información%20sobre%20La%20Chilanguita"
@@ -619,7 +643,7 @@
 
 <!-- ── Banda ───────────────────────────────────────────────────── -->
 <div class="banda">
-  🌮 Birria · Tacos · Menudo · Almuerzos — Comida de siempre 🌮
+  🌮 Birria · Tacos · Gorditas · Almuerzos — Auténtico Estilo CDMX 🌮
 </div>
 
 <!-- ── Menú ────────────────────────────────────────────────────── -->
@@ -692,20 +716,21 @@
       <h2>Comida de Casa,<br>Sabor de Siempre</h2>
       <div class="separador"></div>
       <p>
-        La Chilanguita nació del amor por la cocina tradicional mexicana. Somos un
-        restaurante familiar ubicado en el corazón de Reynosa, Tamaulipas, donde cada
-        platillo se prepara con ingredientes frescos y recetas heredadas de generación
-        en generación.
+        La Chilanguita trae el auténtico sabor de la Ciudad de México directo a Reynosa,
+        Tamaulipas. Somos un restaurante familiar donde cada platillo se prepara con
+        ingredientes frescos y las recetas de siempre — la birria, los tacos y las
+        gorditas que te recuerdan al corazón del país.
       </p>
       <p>
-        Desde el primer día nuestra misión es simple: servir comida casera, abundante
-        y con el sabor que te recuerda al hogar. Sin atajos, sin congelados — pura
-        tradición en cada bocado.
+        Nuestra misión es simple: servirte comida casera abundante con ese sabor chilango
+        que ya conoces y extrañas. Sin atajos, sin congelados — pura tradición capitalina
+        en cada bocado.
       </p>
       <div class="chips">
-        <span class="chip">Comida Casera</span>
+        <span class="chip">Estilo CDMX</span>
         <span class="chip">Ingredientes Frescos</span>
         <span class="chip">Ambiente Familiar</span>
+        <span class="chip">Birria Artesanal</span>
         <span class="chip">Reynosa, Tamps.</span>
       </div>
     </div>
@@ -860,8 +885,22 @@
 <!-- ── Footer ─────────────────────────────────────────────────── -->
 <footer>
   <p>© 2025 <strong>La Chilanguita</strong> · Reynosa, Tamaulipas, México</p>
-  <p style="margin-top:6px; opacity:.7">Comida casera mexicana con el sabor de siempre</p>
-  <p style="margin-top:14px; opacity:.4; font-size:.78rem; letter-spacing:.5px;">Sitio desarrollado por <strong>Ramos MKT</strong></p>
+  <p style="margin-top:6px; opacity:.7">Auténtico estilo Ciudad de México en el corazón de Reynosa</p>
+  <div class="redes-footer">
+    <a class="red-btn red-facebook" href="https://www.facebook.com/lachilanguitareynosa" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.235 2.686.235v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.27h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+      Facebook
+    </a>
+    <a class="red-btn red-tiktok" href="https://www.tiktok.com/@lachilanguitareynosa" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.19 8.19 0 0 0 4.79 1.52V6.76a4.85 4.85 0 0 1-1.02-.07z"/></svg>
+      TikTok
+    </a>
+    <a class="red-btn red-whatsapp" href="https://wa.me/528998252524" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.85L.057 23.57a.5.5 0 0 0 .611.612l5.739-1.502A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0m0 21.818a9.807 9.807 0 0 1-5.045-1.39l-.361-.214-3.747.982.999-3.648-.235-.374A9.808 9.808 0 0 1 2.182 12C2.182 6.573 6.573 2.182 12 2.182S21.818 6.573 21.818 12 17.427 21.818 12 21.818"/></svg>
+      WhatsApp
+    </a>
+  </div>
+  <p style="margin-top:10px; opacity:.4; font-size:.78rem; letter-spacing:.5px;">Sitio desarrollado por <strong>Ramos MKT</strong></p>
 </footer>
 
 <!-- ── Botón flotante ─────────────────────────────────────────── -->
