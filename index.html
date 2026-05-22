@@ -370,7 +370,7 @@
       cursor: pointer;
     }
     .galeria-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
-    .galeria-item:nth-child(6) { grid-column: span 2; }
+    .galeria-item:nth-child(9) { grid-column: span 2; }
     .galeria-item img {
       width: 100%;
       height: 100%;
@@ -554,7 +554,7 @@
         grid-auto-rows: 150px;
       }
       .galeria-item:nth-child(1) { grid-column: span 2; grid-row: span 1; }
-      .galeria-item:nth-child(6) { grid-column: span 1; }
+      .galeria-item:nth-child(9) { grid-column: span 1; }
     }
 
     @media (max-width: 480px) {
@@ -601,7 +601,7 @@
   <p class="hero-tagline">Tradicional Sabor Mexicano</p>
   <div class="hero-botones">
     <a class="btn btn-whatsapp"
-       href="https://wa.me/5218671234567?text=Hola%2C%20quiero%20información%20sobre%20La%20Chilanguita"
+       href="https://wa.me/528998252524?text=Hola%2C%20quiero%20información%20sobre%20La%20Chilanguita"
        target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" width="22" fill="currentColor">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/>
@@ -647,10 +647,10 @@
       </div>
 
       <div class="tarjeta">
-        <img class="tarjeta-img" src="foto3.jpeg" alt="Menudo" loading="lazy" />
+        <img class="tarjeta-img" src="foto3.jpeg" alt="Gorditas" loading="lazy" />
         <div class="tarjeta-info">
-          <p class="tarjeta-titulo">Menudo</p>
-          <p class="tarjeta-desc">Caldo reconfortante con maíz pozolero, el remedio de los domingos.</p>
+          <p class="tarjeta-titulo">Gorditas</p>
+          <p class="tarjeta-desc">Masa de maíz gordita rellena de guisos del día. Crujientes por fuera, jugosas por dentro.</p>
         </div>
       </div>
 
@@ -718,8 +718,29 @@
   <div class="separador"></div>
   <p class="subtitulo-seccion">Una probadita visual de todo lo que tenemos para ti</p>
   <div class="grid-galeria">
+    <div class="galeria-item" onclick="abrirLightbox('foto1.jpg')">
+      <img src="foto1.jpg" alt="Platillo La Chilanguita" loading="lazy" />
+    </div>
+    <div class="galeria-item" onclick="abrirLightbox('foto2.jpg')">
+      <img src="foto2.jpg" alt="Platillo La Chilanguita" loading="lazy" />
+    </div>
+    <div class="galeria-item" onclick="abrirLightbox('foto3.jpeg')">
+      <img src="foto3.jpeg" alt="Platillo La Chilanguita" loading="lazy" />
+    </div>
+    <div class="galeria-item" onclick="abrirLightbox('foto4.jpeg')">
+      <img src="foto4.jpeg" alt="Platillo La Chilanguita" loading="lazy" />
+    </div>
+    <div class="galeria-item" onclick="abrirLightbox('foto5.jpeg')">
+      <img src="foto5.jpeg" alt="Platillo La Chilanguita" loading="lazy" />
+    </div>
+    <div class="galeria-item" onclick="abrirLightbox('foto6.jpeg')">
+      <img src="foto6.jpeg" alt="Platillo La Chilanguita" loading="lazy" />
+    </div>
     <div class="galeria-item" onclick="abrirLightbox('foto7.jpeg')">
       <img src="foto7.jpeg" alt="Platillo La Chilanguita" loading="lazy" />
+    </div>
+    <div class="galeria-item" onclick="abrirLightbox('foto8.jpeg')">
+      <img src="foto8.jpeg" alt="Platillo La Chilanguita" loading="lazy" />
     </div>
     <div class="galeria-item" onclick="abrirLightbox('foto9.jpg')">
       <img src="foto9.jpg" alt="Platillo La Chilanguita" loading="lazy" />
@@ -727,14 +748,11 @@
     <div class="galeria-item" onclick="abrirLightbox('foto10.jpeg')">
       <img src="foto10.jpeg" alt="Platillo La Chilanguita" loading="lazy" />
     </div>
-    <div class="galeria-item" onclick="abrirLightbox('foto12.jpeg')">
-      <img src="foto12.jpeg" alt="Platillo La Chilanguita" loading="lazy" />
-    </div>
-    <div class="galeria-item" onclick="abrirLightbox('backupfoto7.jpeg')">
-      <img src="backupfoto7.jpeg" alt="Platillo La Chilanguita" loading="lazy" />
-    </div>
     <div class="galeria-item" onclick="abrirLightbox('foto11.jpg')">
       <img src="foto11.jpg" alt="Platillo La Chilanguita" loading="lazy" />
+    </div>
+    <div class="galeria-item" onclick="abrirLightbox('foto12.jpeg')">
+      <img src="foto12.jpeg" alt="Platillo La Chilanguita" loading="lazy" />
     </div>
   </div>
 </section>
@@ -747,10 +765,10 @@
     <div class="ubicacion-inner">
       <div class="mapa-embed">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114957.89!2d-98.28!3d26.08!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x866878ae33c4a15f%3A0x4b7c3c10b8dd2e1e!2sReynosa%2C%20Tamaulipas!5e0!3m2!1ses!2smx!4v1"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3583.6150117536636!2d-98.2792185!3d26.078835500000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86650fd221886dd3%3A0x9be9cf84061aefb5!2sLa%20Chilanguita!5e0!3m2!1ses-419!2smx!4v1779474437306!5m2!1ses-419!2smx"
           allowfullscreen loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          title="Mapa Reynosa, Tamaulipas">
+          title="La Chilanguita – Brasil 810, Anzalduas, Reynosa">
         </iframe>
       </div>
       <div class="ubicacion-datos">
@@ -762,8 +780,7 @@
           </div>
           <div class="dato-texto">
             <strong>Dirección</strong>
-            <p>Reynosa, Tamaulipas, México<br>
-               <em>(Actualiza con la dirección exacta)</em></p>
+            <p>Brasil 810, Anzalduas<br>88630 Reynosa, Tamaulipas</p>
           </div>
         </div>
 
@@ -773,8 +790,8 @@
           </div>
           <div class="dato-texto">
             <strong>Horarios</strong>
-            <p>Lunes a Viernes: 8:00 am – 4:00 pm<br>
-               Sábado y Domingo: 8:00 am – 5:00 pm</p>
+            <p>Lunes a Sábado: 8:00 am – 8:00 pm<br>
+               Domingo: 8:00 am – 5:00 pm</p>
           </div>
         </div>
 
@@ -784,12 +801,12 @@
           </div>
           <div class="dato-texto">
             <strong>Teléfono / WhatsApp</strong>
-            <p><a href="https://wa.me/5218671234567">867 123 4567</a></p>
+            <p><a href="https://wa.me/528998252524">899 825 2524</a></p>
           </div>
         </div>
 
         <a class="btn btn-maps"
-           href="https://maps.google.com/?q=Reynosa,Tamaulipas,Mexico"
+           href="https://maps.google.com/?q=La+Chilanguita,Brasil+810,Anzalduas,Reynosa,Tamaulipas"
            target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" width="18" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:8px">
             <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
@@ -813,7 +830,7 @@
       </svg>
       <h4>WhatsApp</h4>
       <p>Escríbenos para hacer pedidos, preguntar el menú del día o reservar tu mesa.</p>
-      <p style="margin-top:10px"><strong><a href="https://wa.me/5218671234567">867 123 4567</a></strong></p>
+      <p style="margin-top:10px"><strong><a href="https://wa.me/528998252524">899 825 2524</a></strong></p>
     </div>
     <div class="contacto-card">
       <svg viewBox="0 0 24 24">
@@ -821,15 +838,15 @@
       </svg>
       <h4>Horarios</h4>
       <p>
-        <strong>Lun – Vie:</strong> 8:00 am – 4:00 pm<br>
-        <strong>Sáb – Dom:</strong> 8:00 am – 5:00 pm<br><br>
+        <strong>Lun – Sáb:</strong> 8:00 am – 8:00 pm<br>
+        <strong>Domingo:</strong> 8:00 am – 5:00 pm<br><br>
         ¡Te esperamos con las ollas humeando!
       </p>
     </div>
   </div>
   <div style="text-align:center">
     <a class="btn btn-contacto-wa"
-       href="https://wa.me/5218671234567?text=Hola%20La%20Chilanguita%2C%20quiero%20información"
+       href="https://wa.me/528998252524?text=Hola%20La%20Chilanguita%2C%20quiero%20información"
        target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" width="22" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:10px">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/>
@@ -848,7 +865,7 @@
 
 <!-- ── Botón flotante ─────────────────────────────────────────── -->
 <a class="wa-flotante"
-   href="https://wa.me/5218671234567?text=Hola%20La%20Chilanguita%2C%20quiero%20información"
+   href="https://wa.me/528998252524?text=Hola%20La%20Chilanguita%2C%20quiero%20información"
    target="_blank" rel="noopener" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24">
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/>
